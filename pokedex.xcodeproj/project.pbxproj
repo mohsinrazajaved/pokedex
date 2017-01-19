@@ -13,6 +13,7 @@
 		1FAAE2FE1E30C4C500D02769 /* pokedex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FAAE2FC1E30C4C500D02769 /* pokedex.xcdatamodeld */; };
 		1FAAE3001E30C4C500D02769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FAAE2FF1E30C4C500D02769 /* Assets.xcassets */; };
 		1FAAE3031E30C4C500D02769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FAAE3011E30C4C500D02769 /* LaunchScreen.storyboard */; };
+		1FAAE30B1E30DD7C00D02769 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1FAAE30A1E30DD7C00D02769 /* pokemon.csv */; };
 		712B1BD8581018167B8A4B90 /* Pods_pokedex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB05B28CDD31243C30C554F /* Pods_pokedex.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		1FAAE2FF1E30C4C500D02769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FAAE3021E30C4C500D02769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FAAE3041E30C4C500D02769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FAAE30A1E30DD7C00D02769 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		2F110DCD949EC1BF24E4E08D /* Pods-pokedex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pokedex/Pods-pokedex.debug.xcconfig"; sourceTree = "<group>"; };
 		D301AA1A9C13B4310C6B7D4D /* Pods-pokedex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokedex.release.xcconfig"; path = "Pods/Target Support Files/Pods-pokedex/Pods-pokedex.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 				1FAAE2F91E30C4C500D02769 /* Main.storyboard */,
 				1FAAE2FF1E30C4C500D02769 /* Assets.xcassets */,
 				1FAAE3011E30C4C500D02769 /* LaunchScreen.storyboard */,
+				1FAAE30A1E30DD7C00D02769 /* pokemon.csv */,
 				1FAAE3041E30C4C500D02769 /* Info.plist */,
 				1FAAE2FC1E30C4C500D02769 /* pokedex.xcdatamodeld */,
 			);
@@ -156,6 +159,7 @@
 			files = (
 				1FAAE3031E30C4C500D02769 /* LaunchScreen.storyboard in Resources */,
 				1FAAE3001E30C4C500D02769 /* Assets.xcassets in Resources */,
+				1FAAE30B1E30DD7C00D02769 /* pokemon.csv in Resources */,
 				1FAAE2FB1E30C4C500D02769 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
