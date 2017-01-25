@@ -7,33 +7,23 @@
 //
 
 import Foundation
+
 class Pokemon
 {
 
-    fileprivate var _name:String?
-    fileprivate var _pokedexId:Int?
+    private var _name:String!
+    private var _pokedexId:Int!
     
-    //getters
-    var getname:String?
+    //public getters
+    var name:String?
     {
-        if _name != nil
-        {
-            return _name
-        }
-        
-        return nil
+       return _name ?? ""
     }
     
-    var getpokedexId:Int?
+    var pokedexId:Int?
     {
-        if _pokedexId != nil
-        {
-         return _pokedexId
-        }
-
-     return nil
+      return _pokedexId ?? 0
     }
-    
     
     init(_ name:String,_ pokedex:Int)
     {

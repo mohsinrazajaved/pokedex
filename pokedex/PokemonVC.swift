@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class PokemonVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UISearchBarDelegate
+class PokemonVC:UIViewController
 {
    
     @IBOutlet weak var collectionView: UICollectionView!
@@ -73,7 +73,50 @@ class PokemonVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
     }
     
     
-   // Mark: - UICollectionViewDatasource
+   
+    // Mark: - Music
+
+    @IBAction func musicBtn(_ sender: UIBarButtonItem)
+    {
+        if musicplayer.isPlaying
+        {
+          musicplayer.pause()
+        }
+        
+        else
+        {
+          musicplayer.play()
+        }
+
+    }
+    
+     // Mark: - Segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        
+        if segue.identifier == storybored.storyboredId
+        {
+        
+            if let destinationvc = segue.destination as? DetailVC
+            {
+              destinationvc.poke = (sender as? Pokemon)
+            }
+        }
+    }
+    
+    //private struct
+    fileprivate struct storybored
+    {
+      static let storyboredId = "detailpokemon"
+    }
+    
+}
+
+extension PokemonVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
+{
+
+
+    // Mark: - UICollectionViewDatasource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
     {
@@ -84,12 +127,12 @@ class PokemonVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
     {
         if isInSearchMode == true
         {
-          return filterpokeArray.count
+            return filterpokeArray.count
         }
-        
+            
         else
         {
-          return pokeArray.count
+            return pokeArray.count
         }
     }
     
@@ -111,38 +154,38 @@ class PokemonVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
-     // Mark: - UICollectionViewDelegateFlowLayout
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        return CGSize(width: 105, height: 105)
-    }
-
-    // Mark: - Music
-
-    @IBAction func musicBtn(_ sender: UIBarButtonItem)
-    {
-        if musicplayer.isPlaying
+        let poke:Pokemon!
+        if isInSearchMode == true
         {
-          musicplayer.pause()
+            poke = filterpokeArray[indexPath.row]
         }
-        
+            
         else
         {
-          musicplayer.play()
+            poke = pokeArray[indexPath.row]
         }
-
+        
+        performSegue(withIdentifier:storybored.storyboredId,sender: poke)
     }
     
+    // Mark: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        return CGSize(width: 105,height: 105)
+    }
+    
+}
+
+
+extension PokemonVC:UISearchBarDelegate
+{
     // Mark: - SearchBarDelegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
-        
         view.endEditing(true)
     }
     
@@ -150,16 +193,16 @@ class PokemonVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataS
     {
         if searchBar.text == nil || searchBar.text == ""
         {
-           isInSearchMode = false
-           collectionView.reloadData()
-           view.endEditing(true)
+            isInSearchMode = false
+            collectionView.reloadData()
+            view.endEditing(true)
         }
-        
+            
         else
         {
             isInSearchMode = true
             let lower = searchBar.text!.lowercased()
-            filterpokeArray = pokeArray.filter({$0.getname?.range(of: lower) != nil})
+            filterpokeArray = pokeArray.filter({$0.name?.range(of: lower) != nil})
             collectionView.reloadData()
         }
     }

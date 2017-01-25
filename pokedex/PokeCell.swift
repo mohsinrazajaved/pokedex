@@ -10,7 +10,6 @@ import UIKit
 
 class PokeCell: UICollectionViewCell
 {
-    
     var pokemon:Pokemon!
     {
         didSet
@@ -33,8 +32,8 @@ class PokeCell: UICollectionViewCell
     {
         if pokemon != nil
         {
-            pokemonImage.image = UIImage(named:"\(pokemon.getpokedexId!)"+".png")
-            pokemonName.text = pokemon?.getname?.capitalized
+            pokemonImage.image = UIImage(named:"\(pokemon.pokedexId!)"+".png")
+            pokemonName.text = pokemon?.name?.capitalized
         }
     }
 }
